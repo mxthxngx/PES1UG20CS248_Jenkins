@@ -5,22 +5,22 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'g++ temp.cpp -o temp'
-                 build job: 'PES1UG20CS250-1', wait: false
-                 echo 'Build by CS250 successful'
+                 build job: 'PES1UG20CS248-1', wait: false
+                 echo 'Build by CS248 successful'
             }
         }
 
         stage('Test') {
             steps {
                 sh 'cat temp.cpp'
-                echo 'Test by CS250 successful'
+                echo 'Test by CS248 successful'
             }
         }
 
         stage('Deploy') {
             steps {
                
-                echo 'Deploy by CS250 successful'
+                echo 'Deploy by CS248 successful'
             }
         }
     }
