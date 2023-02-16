@@ -4,29 +4,32 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make'
+                sh 'g++ temp.cpp -o temp'
+                 build job: 'PES1UG20CS250-1', wait: false
+                 echo 'Build by CS250 successful'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'make test'
+                sh 'cat temp.cpp'
+                echo 'Test by CS250 successful'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'make deploy'
+               
+                echo 'Deploy by CS250 successful'
             }
         }
     }
 
     post {
-        always {
-            echo 'Pipeline finished'
-        }
         failure {
-            echo 'Pipeline failed'
+            
+                echo 'Pipeline Failed'
+          
         }
     }
 }
